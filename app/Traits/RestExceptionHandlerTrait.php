@@ -38,7 +38,7 @@ trait RestExceptionHandlerTrait {
     }
     protected function NotFoundHttpException(Exception $exception)
     {
-        $response['error'] = 'Not found';
+        $response['error'] = $exception->getMessage();
         $response['message'] = 'page not found';
         $response['status'] = 404;
         return response($response);
