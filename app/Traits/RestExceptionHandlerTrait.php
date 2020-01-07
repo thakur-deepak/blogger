@@ -5,6 +5,7 @@ namespace App\Traits;
 use Exception;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 trait RestExceptionHandlerTrait {
 
@@ -16,22 +17,31 @@ trait RestExceptionHandlerTrait {
                 return $this->validationException($exception);
             case ($exception instanceof MethodNotAllowedHttpException):
                 return $this->MethodNotAllowedHttpException($exception);
+            case ($exception instanceof NotFoundHttpException):
+                return $this->NotFoundHttpException($exception);
         }
     }
     
     protected function validationException(ValidationException $exception) {
-        $errors_response['error'] = $exception->validator->errors()->getMessages();
-        $errors_response['message'] = 'Validation error';
-        $errors_response['status'] = 422;
-        return response($errors_response);
-        
+        $response['error'] = $exception->validator->errors()->getMessages();
+        $response['message'] = 'Validation error';
+        $response['status'] = 422;
+        return response($response);        
     }
-    protected function MethodNotAllowedHttpException($exception)
+    
+    protected function MethodNotAllowedHttpException(Exception $exception)
     {
-        $errors_response['error'] = $exception->getMessage();
-        $errors_response['message'] = 'MethodNotAllowedHttpException';
-        $errors_response['status'] = 404;
-        return response($errors_response);
+        $response['error'] = $exception->getMessage();
+        $response['message'] = 'MethodNotAllowedHttpException';
+        $response['status'] = 404;
+        return response($response);
+    }
+    protected function NotFoundHttpException(Exception $exception)
+    {
+        $response['error'] = 'Not found';
+        $response['message'] = 'page not found';
+        $response['status'] = 404;
+        return response($response);
     }
 
     protected function response($errors_response = '')
