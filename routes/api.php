@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('v1')->group(function () {
+Route::prefix(config('constants.API_PREFIX'))->group(function () {
     Route::post('/users', 'UsersController@store');
 });
