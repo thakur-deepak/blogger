@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\App\V1;
 
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Str;
 use App\Repositories\UserRepositoryInterface;
 use App\Http\Requests\UserStoreRequest;
+
 class UsersController extends Controller
 {
     protected $user;
@@ -16,7 +17,9 @@ class UsersController extends Controller
     }
     
     public function store(UserStoreRequest $request)
-    {     
-       return $this->user->store($request);
+    {
+//        $request['password'] = bcrypt($request->input('password'));
+        $request['api_token'] = Str::random(60);
+        return $this->user->store($request);
     }
 }

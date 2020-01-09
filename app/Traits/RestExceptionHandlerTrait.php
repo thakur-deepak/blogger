@@ -44,6 +44,14 @@ trait RestExceptionHandlerTrait {
         return response($response);
     }
 
+    protected function invalidHeaders()
+    {
+        $response['error'] = 'Invalid headers';
+        $response['message'] = 'Please set valid headers';
+        $response['status'] = 400;
+        return response($response);
+    }
+
     protected function response($errors_response = '')
     {
         return response()->json(['data' => $errors_response]);

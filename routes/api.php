@@ -11,6 +11,11 @@
 |
 */
 
-Route::prefix(config('constants.API_PREFIX'))->group(function () {
+
+Route::group(['prefix' => config('constants.API_PREFIX'),  'middleware' => 'CheckHeaders'], function()
+{
     Route::post('/users', 'UsersController@store');
+    Route::get('/users', function(){
+        return 'test';
+    });
 });
