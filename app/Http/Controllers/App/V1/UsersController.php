@@ -18,8 +18,10 @@ class UsersController extends Controller
     
     public function store(UserStoreRequest $request)
     {
-//        $request['password'] = bcrypt($request->input('password'));
+        $request['password'] = bcrypt($request->input('password'));
         $request['api_token'] = Str::random(60);
-        return $this->user->store($request);
+        $data = $this->user->store($request);
+        return response()->json(['data' => $data, 'message' => 'sucess']);
+
     }
 }
