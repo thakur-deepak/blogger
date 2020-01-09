@@ -5,4 +5,5 @@ namespace App\Repositories;
 interface UserRepositoryInterface
 {
     public function store(array $data);
+    public function get();
 }
