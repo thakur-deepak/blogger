@@ -30,6 +30,9 @@
     "extra": {
         "laravel": {
             "dont-discover": []
+        },
+        "hooks": {
+            "pre-commit": "chmod +x .deploy/pre_commit.sh && .deploy/pre_commit.sh"
         }
     },
     "autoload": {
