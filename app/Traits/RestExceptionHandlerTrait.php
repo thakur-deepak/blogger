@@ -51,6 +51,13 @@ trait RestExceptionHandlerTrait {
         $response['status'] = 400;
         return response($response);
     }
+    protected function invalidToken()
+    {
+        $response['error'] = 'Invalid Token';
+        $response['message'] = 'Please set valid token';
+        $response['status'] = 404;
+        return response($response);
+    }
 
     protected function response($errors_response = '')
     {

@@ -3,9 +3,12 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Traits\RestExceptionHandlerTrait;
+use App\User;
 
 class Token
 {
+    use RestExceptionHandlerTrait;
     /**
      * Handle an incoming request.
      *
@@ -15,7 +18,11 @@ class Token
      */
     public function handle($request, Closure $next)
     {
-        $response = $next($request);        
-        return $response;
+        $access_token = trim($request->bearerToken());        
+        $user = User::where('api_token', $access_token)->first();
+        if (!$user) {
+            return $this->invalidToken();
+        }
+        return $next($request);
     }
 }

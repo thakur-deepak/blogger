@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\App\V1;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Str;
-use App\Repositories\UserRepositoryInterface;
 use App\Http\Requests\UserStoreRequest;
+use App\Repositories\UserRepositoryInterface;
+use Illuminate\Support\Str;
 
 class UsersController extends Controller
 {
@@ -15,7 +15,7 @@ class UsersController extends Controller
     {
         $this->user = $user;
     }
-    
+
     public function store(UserStoreRequest $request)
     {
         $request['password'] = bcrypt($request->input('password'));
