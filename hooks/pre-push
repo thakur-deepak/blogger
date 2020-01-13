@@ -19,6 +19,21 @@
 # This sample shows how to prevent push of commits where the log message starts
 # with "WIP" (work in progress).
 
+
+# Sensiolabs Security Checker
+./.deploy/commands/security_checker.sh || EXIT_CODE=1
+
+# PHP Lint
+./.deploy/commands/parallel_lint.sh || EXIT_CODE=1
+
+# Unit tests
 ./vendor/bin/phpunit --color=always
+
+# PHP CodeSniffer
+./.deploy/commands/phpcs.sh || EXIT_CODE=1
+
+# PHP Mess Detector
+./.deploy/commands/phpmd.sh || EXIT_CODE=1
+
 
 exit 0
