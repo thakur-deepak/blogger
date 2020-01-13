@@ -29,7 +29,7 @@ class UserTest extends TestCase
             'password' =>  $this->faker->password()
         ];
         $this->post($this->api_path. 'users', $attributes)
-            ->assertStatus(201)
+            ->assertStatus(200)
             ->assertSee('sucess');
     }
 }
