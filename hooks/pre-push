@@ -3,7 +3,7 @@
 
 EXIT_CODE=0
 
-echo -e "\n\t************************************************\n\t*  Sensiolabs Security Checker *\n\t************************************************" ||
+echo -e "\n************************************************\n\t*  Sensiolabs Security Checker *\n\t************************************************" ||
 # Sensiolabs Security Checker
 ./vendor/bin/security-checker security:check --ansi || EXIT_CODE=1
 
