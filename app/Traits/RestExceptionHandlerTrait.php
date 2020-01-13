@@ -9,6 +9,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 trait RestExceptionHandlerTrait {
 
+    private $status_response = [];
     protected function getJsonResponseForException(Exception $exception)
     {
         switch(true)
@@ -23,40 +24,40 @@ trait RestExceptionHandlerTrait {
     }
     
     protected function validationException(ValidationException $exception) {
-        $status_response['error'] = $exception->validator->errors()->getMessages();
-        $status_response['message'] = 'Validation error';
-        $status_response['status'] = 422;
-        return response($status_response);
+        $this->status_response['error'] = $exception->validator->errors()->getMessages();
+        $this->status_response['message'] = 'Validation error';
+        $this->status_response['status'] = 422;
+        return response($this->status_response);
     }
     
     protected function MethodNotAllowedHttpException(Exception $exception)
     {
-        $status_response['error'] = $exception->getMessage();
-        $status_response['message'] = 'MethodNotAllowedHttpException';
-        $status_response['status'] = 404;
-        return response($status_response);
+        $this->status_response['error'] = $exception->getMessage();
+        $this->status_response['message'] = 'MethodNotAllowedHttpException';
+        $this->status_response['status'] = 404;
+        return response($this->status_response);
     }
     protected function NotFoundHttpException(Exception $exception)
     {
-        $status_response['error'] = $exception->getMessage();
-        $status_response['message'] = 'page not found';
-        $status_response['status'] = 404;
-        return response($status_response);
+        $this->status_response['error'] = $exception->getMessage();
+        $this->status_response['message'] = 'page not found';
+        $this->status_response['status'] = 404;
+        return response($this->status_response);
     }
 
     protected function invalidHeaders()
     {
-        $status_response['error'] = 'Invalid headers';
-        $status_response['message'] = 'Please set valid headers';
-        $status_response['status'] = 400;
-        return response($status_response);
+        $this->status_response['error'] = 'Invalid headers';
+        $this->status_response['message'] = 'Please set valid headers';
+        $this->status_response['status'] = 400;
+        return response($this->status_response);
     }
     protected function invalidToken()
     {
-        $status_response['error'] = 'Invalid Token';
-        $status_response['message'] = 'Please set valid token';
-        $status_response['status'] = 404;
-        return response($status_response);
+        $this->status_response['error'] = 'Invalid Token';
+        $this->status_response['message'] = 'Please set valid token';
+        $this->status_response['status'] = 404;
+        return response($this->status_response);
     }
 
     protected function response($errors_response = '')
