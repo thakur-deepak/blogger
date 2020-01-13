@@ -33,3 +33,4 @@ if ($returnCode !== 0) {
   exit(1); // git halts
 }
 exit(0); // git continues with push event
+?>
