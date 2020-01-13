@@ -21,7 +21,7 @@
 
 <?php
 # echo "Running tests.. ";
-exec('ls');
+echo exec('ls');
 # exec("vendor/bin/phpunit", $output, $returnCode);
 # if ($returnCode !== 0) {
 #   // Show full output
