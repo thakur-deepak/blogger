@@ -3,7 +3,8 @@
 namespace App\Traits;
 use Illuminate\Http\Request;
 
-trait RestTrait {
+trait RestTrait
+{
     
     public function isApiCall(Request $request)
     {

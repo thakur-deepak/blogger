@@ -18,7 +18,7 @@ class Token
      */
     public function handle($request, Closure $next)
     {
-        $access_token = trim($request->bearerToken());        
+        $access_token = trim($request->bearerToken());
         $user = User::where('api_token', $access_token)->first();
         if (!$user) {
             return $this->invalidToken();

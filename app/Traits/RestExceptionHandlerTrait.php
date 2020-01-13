@@ -7,7 +7,8 @@ use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-trait RestExceptionHandlerTrait {
+trait RestExceptionHandlerTrait
+{
 
     private $response = [];
     protected function getJsonResponseForException(Exception $exception)
