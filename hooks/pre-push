@@ -21,23 +21,23 @@
 
 
 # Sensiolabs Security Checker
-echo '"\033[31m some colored text \033[0m some white text \n" #####------ Security checker ------#####';
+echo '####################### Security checker #######################';
 ./hooks/commands/security_checker.sh || EXIT_CODE=1
 
 # PHP Lint
-echo '#####------ linter ------#####';
+echo '####################### linter #######################';
 ./hooks/commands/parallel_lint.sh || EXIT_CODE=1
 
 # Unit tests
-echo '#####------ Tests ------#####';
+echo '####################### Tests #######################';
 ./vendor/bin/phpunit --color=always
 
 # PHP CodeSniffer
-echo '#####------ Code sniffer ------#####';
+echo '####################### Code sniffer #######################';
 ./hooks/commands/phpcs.sh || EXIT_CODE=1
 
 # PHP Mess Detector
-echo '#####------ Mess detector ------#####';
+echo '####################### Mess detector #######################';
 ./hooks/commands/phpmd.sh || EXIT_CODE=1
 
 
