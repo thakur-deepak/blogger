@@ -7,14 +7,19 @@ echo -e "\n************************************************\n*  Sensiolabs Secur
 # Sensiolabs Security Checker
 ./vendor/bin/security-checker security:check --ansi || EXIT_CODE=1
 
+echo -e "\n************************************************\n*  PHP Lint *\n************************************************" ||
 # PHP Lint
 ./hooks/commands/parallel_lint.sh || EXIT_CODE=1
 
+echo -e "\n************************************************\n*  PHP Unit *\n************************************************" ||
 # PHPUnit
 ./hooks/commands/phpunit.sh || EXIT_CODE=1
 
+echo -e "\n************************************************\n*  PHP CodeSniffer *\n************************************************" ||
 # PHP CodeSniffer
-#./hooks/commands/phpcs.sh || EXIT_CODE=1
+./hooks/commands/phpcs.sh || EXIT_CODE=1
+
+echo -e "\n************************************************\n*  PHP Mess Detector *\n************************************************" ||
 
 # PHP Mess Detector
 ./hooks/commands/phpmd.sh || EXIT_CODE=1
