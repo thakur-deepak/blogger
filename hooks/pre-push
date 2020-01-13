@@ -20,6 +20,9 @@
 # with "WIP" (work in progress).
 
 
+
+EXIT_CODE=0
+
 # Sensiolabs Security Checker
 echo '####################### Security checker #######################';
 ./hooks/commands/security_checker.sh || EXIT_CODE=1
@@ -40,5 +43,8 @@ echo '####################### Code sniffer #######################';
 echo '####################### Mess detector #######################';
 ./hooks/commands/phpmd.sh || EXIT_CODE=1
 
+[ $EXIT_CODE -ne 0 ] &&
+echo -e "\n\t************************************************\n\t*  PRE-COMMIT HOOK FAILED (see reasons above)  *\n\t************************************************" ||
+echo -e "\n\t*********************************************\n\t*  PRE-COMMIT HOOK PASSED, ready to commit  *\n\t*********************************************"
 
-exit 0
+exit $EXIT_CODE
