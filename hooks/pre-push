@@ -20,14 +20,16 @@
 # with "WIP" (work in progress).
 
 <?php
-echo "Running tests.. ";
-exec("vendor/bin/phpunit", $output, $returnCode);
+$projectName = basename(getcwd()); // get the name of your app
+echo PHP_EOL;
+echo '+ Starting unit tests'.PHP_EOL;
+exec('vendor/bin/phpunit', $output, $returnCode); // command to run tests with any testing framework you like
 if ($returnCode !== 0) {
-  // Show full output
-  echo PHP_EOL . implode($output, PHP_EOL) . PHP_EOL;
-  echo "Aborting commit.." . PHP_EOL;
-  exit(1);
+  $testSummary = $output;
+  printf("%s Test Summary: ", $projectName);
+  echo PHP_EOL;
+  printf("( %s ) %s%2\$s", $testSummary[14], PHP_EOL);
+  printf("ABORTING COMMIT!\n");
+  exit(1); // git halts
 }
-// Show summary (last line)
-echo array_pop($output) . PHP_EOL;
-exit(0);
+exit(0); // git continues with push event
