@@ -13,7 +13,7 @@ EXIT_CODE=0
 ./hooks/commands/phpunit.sh || EXIT_CODE=1
 
 # PHP CodeSniffer
-#./hooks/commands/phpcs.sh || EXIT_CODE=1
+./hooks/commands/phpcs.sh || EXIT_CODE=1
 
 # PHP Mess Detector
 #./hooks/commands/phpmd.sh || EXIT_CODE=1
