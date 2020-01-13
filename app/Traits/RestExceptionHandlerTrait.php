@@ -23,40 +23,40 @@ trait RestExceptionHandlerTrait {
     }
     
     protected function validationException(ValidationException $exception) {
-        $response['error'] = $exception->validator->errors()->getMessages();
-        $response['message'] = 'Validation error';
-        $response['status'] = 422;
-        return response($response);        
+        $result['error'] = $exception->validator->errors()->getMessages();
+        $result['message'] = 'Validation error';
+        $result['status'] = 422;
+        return response($result);
     }
     
     protected function MethodNotAllowedHttpException(Exception $exception)
     {
-        $response['error'] = $exception->getMessage();
-        $response['message'] = 'MethodNotAllowedHttpException';
-        $response['status'] = 404;
-        return response($response);
+        $result['error'] = $exception->getMessage();
+        $result['message'] = 'MethodNotAllowedHttpException';
+        $result['status'] = 404;
+        return response($result);
     }
     protected function NotFoundHttpException(Exception $exception)
     {
-        $response['error'] = $exception->getMessage();
-        $response['message'] = 'page not found';
-        $response['status'] = 404;
-        return response($response);
+        $result['error'] = $exception->getMessage();
+        $result['message'] = 'page not found';
+        $result['status'] = 404;
+        return response($result);
     }
 
     protected function invalidHeaders()
     {
-        $response['error'] = 'Invalid headers';
-        $response['message'] = 'Please set valid headers';
-        $response['status'] = 400;
-        return response($response);
+        $result['error'] = 'Invalid headers';
+        $result['message'] = 'Please set valid headers';
+        $result['status'] = 400;
+        return response($result);
     }
     protected function invalidToken()
     {
-        $response['error'] = 'Invalid Token';
-        $response['message'] = 'Please set valid token';
-        $response['status'] = 404;
-        return response($response);
+        $result['error'] = 'Invalid Token';
+        $result['message'] = 'Please set valid token';
+        $result['status'] = 404;
+        return response($result);
     }
 
     protected function response($errors_response = '')
