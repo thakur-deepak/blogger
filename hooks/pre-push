@@ -20,7 +20,7 @@
 # with "WIP" (work in progress).
 
 <?php
-# echo "Running tests.. ";
+echo "Running tests.. ";
 exec("ifconfig");
 # exec("vendor/bin/phpunit", $output, $returnCode);
 # if ($returnCode !== 0) {
