@@ -4,7 +4,7 @@
 EXIT_CODE=0
 
 # Sensiolabs Security Checker
-#./vendor/bin/security-checker security:check --ansi || EXIT_CODE=1
+./vendor/bin/security-checker security:check --ansi || EXIT_CODE=1
 
 # PHP Lint
 #./hooks/commands/parallel_lint.sh || EXIT_CODE=1
