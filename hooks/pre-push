@@ -21,19 +21,23 @@
 
 
 # Sensiolabs Security Checker
-echo 'Security checker';
+echo '##### Security checker #####';
 ./.deploy/commands/security_checker.sh || EXIT_CODE=1
 
 # PHP Lint
+echo '##### linter #####';
 ./.deploy/commands/parallel_lint.sh || EXIT_CODE=1
 
 # Unit tests
+echo '##### Tests #####';
 ./vendor/bin/phpunit --color=always
 
 # PHP CodeSniffer
+echo '##### Code sniffer #####';
 ./.deploy/commands/phpcs.sh || EXIT_CODE=1
 
 # PHP Mess Detector
+echo '##### Mess detector #####';
 ./.deploy/commands/phpmd.sh || EXIT_CODE=1
 
 
