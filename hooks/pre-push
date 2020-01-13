@@ -26,7 +26,7 @@ echo '##### Security checker #####';
 
 # PHP Lint
 echo '##### linter #####';
-./.deploy/commands/parallel_lint.sh || EXIT_CODE=1
+./vendor/bin/parallel-lint --exclude vendor . --colors || EXIT_CODE=1
 
 # Unit tests
 echo '##### Tests #####';
@@ -34,11 +34,18 @@ echo '##### Tests #####';
 
 # PHP CodeSniffer
 echo '##### Code sniffer #####';
-./.deploy/commands/phpcs.sh || EXIT_CODE=1
+./vendor/bin/phpcs --config-set colors 1 >> /dev/null || EXIT_CODE=1
+./vendor/bin/phpcs --config-set show_progress 1 >> /dev/null || EXIT_CODE=1
+./vendor/bin/phpcs --config-set show_warnings 1 >> /dev/null || EXIT_CODE=1
+./vendor/bin/phpcs app/* -n --runtime-set ignore_warnings_on_exit true --standard=./.deploy/phpcs_ruleset.xml || EXIT_CODE=1
 
 # PHP Mess Detector
 echo '##### Mess detector #####';
-./.deploy/commands/phpmd.sh || EXIT_CODE=1
+./vendor/bin/phpmd . text .deploy/phpmd_ruleset.xml --exclude vendor,_ide_helper.php,database,app/Console/Kernel.php,tests
+RESULT=$?
+[[ $RESULT -eq 0 ]] && echo "PHP Mess Detector check passed"
+
+exit $RESULT
 
 
 exit 0
