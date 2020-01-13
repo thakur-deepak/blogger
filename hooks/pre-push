@@ -18,5 +18,7 @@
 #
 # This sample shows how to prevent push of commits where the log message starts
 # with "WIP" (work in progress).
+
 ./vendor/bin/phpunit --color=always
-exit(0);
+
+exit 0
