@@ -3,10 +3,10 @@
 use Illuminate\Support\Str;
 
 $url      = parse_url(getenv("DATABASE_URL"));
-$host     = $url["host"];
-$port     = $url['port'];
-$username = $url["user"];
-$password = $url["pass"];
+$host     = $url["host"] ?? getenv("DB_HOST");
+$port     = $url['port'] ?? getenv("DB_PORT");
+$username = $url["user"] ?? getenv("DB_DATABASE");
+$password = $url["pass"] ?? getenv("DB_USERNAME");
 $database = substr($url["path"], 1);
 
 return [
