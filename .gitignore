@@ -5,6 +5,7 @@
 /vendor
 /storage
 /bootstrap
+/coverage
 .env
 .env.backup
 .phpunit.result.cache
