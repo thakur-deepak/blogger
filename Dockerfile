@@ -36,4 +36,4 @@ RUN composer install --no-dev --no-interaction -o
 
 
 #RUN docker-php-ext-install pdo_mysql
-RUN composer install -n --prefer-dist
+#RUN composer install -n --prefer-dist
