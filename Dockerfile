@@ -27,12 +27,15 @@ RUN apt-get update \
 # Copy local code to the container image.
 COPY . /var/www/html/
 
-
+# Composer install
 RUN curl -sS https://getcomposer.org/installer | \
     php -- --install-dir=/usr/bin/ --filename=composer
-WORKDIR /app
-#COPY . ./
-RUN composer install --no-dev --no-interaction -o
+COPY composer.json ./
+COPY composer.lock ./
+RUN composer install --no-scripts --no-autoloader
+COPY . ./
+RUN composer dump-autoload --optimize && \
+    composer run-scripts post-install-cmd
 
 
 #RUN docker-php-ext-install pdo_mysql
