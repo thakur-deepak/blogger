@@ -34,8 +34,7 @@ COPY composer.json ./
 COPY composer.lock ./
 RUN composer install --no-scripts --no-autoloader
 COPY . ./
-RUN composer dump-autoload --optimize && \
-    composer run-scripts post-install-cmd
+RUN composer dump-autoload --optimize
 
 
 #RUN docker-php-ext-install pdo_mysql
