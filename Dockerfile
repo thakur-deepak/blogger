@@ -31,7 +31,7 @@ COPY . /var/www/html/
 RUN curl -sS https://getcomposer.org/installer | \
     php -- --install-dir=/usr/bin/ --filename=composer
 WORKDIR /app
-COPY . ./
+#COPY . ./
 RUN composer install --no-dev --no-interaction -o
 
 
