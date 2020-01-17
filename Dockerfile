@@ -25,5 +25,6 @@ RUN apt-get update \
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
 #RUN docker-php-ext-install pdo_mysql
+RUN composer install -n --prefer-dist
 
 RUN ls -al
