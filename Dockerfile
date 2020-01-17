@@ -2,8 +2,6 @@
 # https://hub.docker.com/_/php
 FROM php:7.2-apache
 
-# Copy local code to the container image.
-COPY . /var/www/html/
 
 # Use the PORT environment variable in Apache configuration files.
 RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
@@ -24,7 +22,17 @@ RUN apt-get update \
     && apt-get -y install unzip \
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
+
+
+# Copy local code to the container image.
+COPY . /var/www/html/
+
+
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+RUN php -r "if (hash_file('sha384', 'composer-setup.php') === 'c5b9b6d368201a9db6f74e2611495f369991b72d9c8cbd3ffbc63edff210eb73d46ffbfce88669ad33695ef77dc76976') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+RUN php composer-setup.php
+RUN php -r "unlink('composer-setup.php');"
+
+
 #RUN docker-php-ext-install pdo_mysql
 RUN composer install -n --prefer-dist
-
-RUN ls -al
