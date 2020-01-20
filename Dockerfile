@@ -40,8 +40,8 @@ COPY .env.example .env
 RUN composer install -n --prefer-dist
 
 
-#RUN chown -R www-data:www-data storage bootstrap
-#RUN chmod -R 777 storage bootstrap
+RUN chown -R www-data:www-data storage bootstrap
+RUN chmod -R 777 storage bootstrap
 
 #RUN php artisan key:generate
 
