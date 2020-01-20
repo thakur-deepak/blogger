@@ -45,4 +45,4 @@ RUN composer install -n --prefer-dist
 
 #RUN php artisan key:generate
 
-#RUN ./hooks/pre-push
+RUN ./hooks/pre-push
