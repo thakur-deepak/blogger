@@ -33,9 +33,9 @@ RUN sed -ri -e 's!/var/www/!/var/www/html/public!g' /etc/apache2/apache2.conf /e
 
 COPY .env.example .env
 
-ARG GOOGLE_CLOUD_PROJECT
+#ARG GOOGLE_CLOUD_PROJECT
 
-RUN sed -ri -e 's/project_id/${GOOGLE_CLOUD_PROJECT}/g' .env
+#RUN sed -ri -e 's/project_id/${GOOGLE_CLOUD_PROJECT}/g' .env
 
 RUN composer install -n --prefer-dist
 
