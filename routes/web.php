@@ -16,7 +16,3 @@ Route::get('/', function () {
 });
 
 // Auth::routes();
-
-Route::get('/home', function () {
-    return 'Home Test';
-})->name('home');
