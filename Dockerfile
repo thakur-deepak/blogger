@@ -1,6 +1,6 @@
 
-FROM sandymadaan/php7.3-docker-newrelic:0.4
-
+#FROM sandymadaan/php7.3-docker-newrelic:0.4
+FROM php:7.2-apache
 # Copy local code to the container image.
 COPY . /var/www/html/
 
