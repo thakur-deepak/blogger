@@ -26,6 +26,11 @@
     </filter>
     <php>
         <server name="APP_ENV" value="testing"/>
-        <env name="DATABASE_URL" value="postgres://postgres:ucreate@localhost:5432/laravel_boilerplate"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="QUEUE_DRIVER" value="sync"/>
+        <env name="DB_CONNECTION" value="pgsql"/>
+        <env name="DB_DATABASE" value=":memory:"/>
+        <!-- <env name="DATABASE_URL" value="postgres://postgres:ucreate@localhost:5432/laravel_boilerplate"/> -->
     </php>
 </phpunit>
