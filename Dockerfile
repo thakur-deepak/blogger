@@ -45,4 +45,4 @@ RUN chmod -R 777 storage bootstrap
 
 #RUN php artisan key:generate
 
-#RUN ./hooks/pre-push
+RUN ./hooks/pre-push
