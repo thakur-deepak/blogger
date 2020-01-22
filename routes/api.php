@@ -5,7 +5,7 @@ Route::group(['prefix' => config('constants.API_PREFIX'), 'middleware' => 'Check
     Route::group(['middleware' => 'Token'], function()
     {
         Route::get('/users', function () {
-            return 'test';
+            return 'User test';
         });
     });
 });
