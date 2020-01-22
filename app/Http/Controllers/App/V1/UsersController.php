@@ -18,6 +18,6 @@ class UsersController extends Controller
 
     public function store(UserStoreRequest $request)
     {
-        return response()->json(['data' => $this->user->store($request) , 'message' => 'sucess']);
+        //return response()->json(['data' => $this->user->store($request) , 'message' => 'sucess']);
     }
 }
