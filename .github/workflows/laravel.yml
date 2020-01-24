@@ -27,4 +27,3 @@ jobs:
     - name: Install newman
       run: |
         npm install newman
-    - name: Postman Tests
