@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - uses: matt-ball/newman-action@master
+    with:
+      collection: resources/postman-collection/postman_collection.json
+      environment: resources/postman-collection/postman_environment.json
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
