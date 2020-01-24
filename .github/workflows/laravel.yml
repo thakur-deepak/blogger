@@ -23,8 +23,13 @@ jobs:
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
 
-      - uses: matt-ball/newman-action@master
-    - name: Postman colletion
-    with:
-      collection: resources/postman-collection/postman_collection.json
-      environment: resources/postman-collection/postman_environment.json
+
+      jobs:
+        newman:
+          runs-on: ubuntu-latest
+          steps:
+            - uses: actions/checkout@master
+            - uses: matt-ball/newman-action@master
+            with:
+              collection: resources/postman-collection/postman_collection.json
+              environment: resources/postman-collection/postman_environment.json
