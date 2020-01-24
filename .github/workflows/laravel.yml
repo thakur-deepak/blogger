@@ -25,7 +25,6 @@ jobs:
 
     - uses: docker://circleci/node:10-browsers
     name: Install newman
-    run: |
-      sudo npm install -g newman
+    run: npm install -g newman
     # name: Postman Tests
     # run: newman run resources/postman-collection/postman_collection.json -e resources/postman-collection/postman_environment.json
