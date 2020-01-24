@@ -30,6 +30,9 @@ class UserTest extends TestCase
         ];
         $this->post($this->api_path. 'users', $attributes)
             ->assertStatus(200)
-            ->assertSee('sucess');
+            ->assertSee('data')
+            ->assertSee('Data saved sucessfully')
+            ->assertSee('success')
+            ->assertSee('true');
     }
 }
