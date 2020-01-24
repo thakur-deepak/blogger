@@ -21,9 +21,8 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: vendor/bin/phpunit
-    steps:
-      - name: My first step
+      run: vendor/bin/phpuni
+    - name: My first step
         uses: actions/hello_world@master
         with:
           first_name: Mona
