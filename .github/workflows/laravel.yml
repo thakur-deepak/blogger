@@ -22,15 +22,13 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
-      jobs:
-        my_first_job:
-          steps:
-            - name: My first step
-              uses: actions/hello_world@master
-              with:
-                first_name: Mona
-                middle_name: The
-                last_name: Octocat
+    steps:
+      - name: My first step
+        uses: actions/hello_world@master
+        with:
+          first_name: Mona
+          middle_name: The
+          last_name: Octocat
 # jobs:
 #   newman:
 #     runs-on: ubuntu-latest
