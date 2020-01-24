@@ -24,7 +24,7 @@ jobs:
       run: vendor/bin/phpunit
 
     - uses: docker://circleci/node:10-browsers
-    name: Install newman
+    - name: Install newman
     run: npm install -g newman
-    # name: Postman Tests
+    - name: Postman Tests
     # run: newman run resources/postman-collection/postman_collection.json -e resources/postman-collection/postman_environment.json
