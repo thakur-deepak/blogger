@@ -22,13 +22,21 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
-
-jobs:
-  newman:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: matt-ball/newman-action@master
-      with:
-        collection: resources/postman-collection/postman_collection.json
-        environment: resources/postman-collection/postman_environment.json
+      jobs:
+        my_first_job:
+          steps:
+            - name: My first step
+              uses: actions/hello_world@master
+              with:
+                first_name: Mona
+                middle_name: The
+                last_name: Octocat
+# jobs:
+#   newman:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@master
+#       - uses: matt-ball/newman-action@master
+#       with:
+#         collection: resources/postman-collection/postman_collection.json
+#         environment: resources/postman-collection/postman_environment.json
