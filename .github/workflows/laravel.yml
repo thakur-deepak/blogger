@@ -23,11 +23,11 @@ jobs:
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpuni
     - name: My first step
-        uses: actions/hello_world@master
-        with:
-          first_name: Mona
-          middle_name: The
-          last_name: Octocat
+        # uses: actions/hello_world@master
+        # with:
+        #   first_name: Mona
+        #   middle_name: The
+        #   last_name: Octocat
 # jobs:
 #   newman:
 #     runs-on: ubuntu-latest
