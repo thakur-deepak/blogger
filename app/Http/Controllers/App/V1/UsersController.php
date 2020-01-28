@@ -7,6 +7,7 @@ use App\Http\Requests\UserStoreRequest;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 
+
 class UsersController extends Controller
 {
     protected $user;
