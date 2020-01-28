@@ -130,14 +130,12 @@
 					{
 						"key": "Accept",
 						"value": "application/json",
-						"type": "text",
-						"disabled": true
+						"type": "text"
 					},
 					{
 						"key": "Content-Type",
 						"value": "application/json",
-						"type": "text",
-						"disabled": true
+						"type": "text"
 					}
 				],
 				"url": {
