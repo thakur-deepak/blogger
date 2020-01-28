@@ -37,10 +37,10 @@
 									"            tests[\"Body contains data\"] = false;",
 									"        }",
 									"       ",
-									"       pm.test(\"Body matches string\", function () {",
-									"            pm.expect(pm.response.text()).to.include(\"data\");",
-									"            pm.expect(pm.response.text()).to.include(\"success\");",
-									"       });",
+									"    //   pm.test(\"Body matches string\", function () {",
+									"    //         pm.expect(pm.response.text()).to.include(\"data\");",
+									"    //         pm.expect(pm.response.text()).to.include(\"success\");",
+									"    //   });",
 									"       ",
 									"       pm.test(\"Content-Type header is present\", function () {",
 									"           pm.response.to.have.header(\"Content-Type\");",
@@ -144,8 +144,8 @@
 					"script": {
 						"id": "c1f6a357-8c2d-4dc9-9686-7750c91894c1",
 						"exec": [
-							"// let utils = eval(environment.utils)().my_package;",
-							"// utils.testSaveUser(); ",
+							"let utils = eval(environment.utils)().my_package;",
+							"utils.testSaveUser(); ",
 							""
 						],
 						"type": "text/javascript"
