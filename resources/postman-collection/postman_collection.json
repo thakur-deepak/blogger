@@ -83,6 +83,48 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Get Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b66a8318-35f9-4a46-8174-76cb5b35faa5",
+						"exec": [
+							"let utils = eval(environment.utils)().my_package;",
+							"utils.testSaveUser(); ",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{API_URL_LBP}}/users",
+					"host": [
+						"{{API_URL_LBP}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Save User",
 			"event": [
 				{

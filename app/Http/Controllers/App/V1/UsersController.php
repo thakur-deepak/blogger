@@ -23,4 +23,13 @@ class UsersController extends Controller
         }
         return response()->json(['data' =>  'Data not saved', 'success' => false]);
     }
+
+    public function get()
+    {
+        $users = $this->user->get();
+        if ($users) {
+            return response()->json(['data' =>  $users, 'success' => true]);
+        }
+        return response()->json(['data' =>  'Data not saved', 'success' => false]);
+    }
 }
