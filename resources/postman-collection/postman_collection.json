@@ -144,8 +144,8 @@
 					"script": {
 						"id": "c1f6a357-8c2d-4dc9-9686-7750c91894c1",
 						"exec": [
-							"let utils = eval(environment.utils)().my_package;",
-							"utils.testSaveUser(); ",
+							"// let utils = eval(environment.utils)().my_package;",
+							"// utils.testSaveUser(); ",
 							""
 						],
 						"type": "text/javascript"

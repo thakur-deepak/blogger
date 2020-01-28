@@ -5,7 +5,7 @@ namespace App\Http\Controllers\App\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
 use App\Repositories\UserRepositoryInterface;
-use Illuminate\Http\Request;
+
 
 class UsersController extends Controller
 {
@@ -16,7 +16,7 @@ class UsersController extends Controller
         $this->user = $user;
     }
 
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
         if ($this->user->store($request)) {
             return response()->json(['data' =>  'Data saved sucessfully', 'success' => true]);
