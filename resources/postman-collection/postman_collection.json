@@ -86,24 +86,24 @@
 			"name": "Save User",
 			"event": [
 				{
-					"listen": "test",
+					"listen": "prerequest",
 					"script": {
-						"id": "4f7ed736-6b58-4d4b-82ff-ca2660f5895a",
+						"id": "2c0a9779-09dc-4c6b-9d39-b0b64f99e914",
 						"exec": [
-							"let utils = eval(environment.utils)().my_package;",
-							"utils.testSaveUser(); ",
+							"pm.environment.set(\"email\", \"email+\" + _.random(1, 10000) + \"@gmail.com\");",
+							"pm.environment.set(\"password\", _.random(1000, 100000) + 'xper@_00pass');",
 							""
 						],
 						"type": "text/javascript"
 					}
 				},
 				{
-					"listen": "prerequest",
+					"listen": "test",
 					"script": {
-						"id": "4eb9694a-47de-4360-af16-78f2bbc52148",
+						"id": "c1f6a357-8c2d-4dc9-9686-7750c91894c1",
 						"exec": [
-							"pm.environment.set(\"email\", \"email+\" + _.random(1, 10000) + \"@gmail.com\");",
-							"pm.environment.set(\"password\", _.random(1000, 100000) + 'random@_00pass');",
+							"let utils = eval(environment.utils)().my_package;",
+							"utils.testSaveUser(); ",
 							""
 						],
 						"type": "text/javascript"
