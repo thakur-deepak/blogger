@@ -30,6 +30,6 @@ class UsersController extends Controller
         if ($users) {
             return response()->json(['data' =>  $users, 'success' => true]);
         }
-        return response()->json(['data' =>  'Data not available', 'success' => false]);
+        return response()->json(['data' =>  'Data not available', 'success' => false, 'status' => 200]);
     }
 }
