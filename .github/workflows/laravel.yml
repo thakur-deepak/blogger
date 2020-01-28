@@ -26,8 +26,8 @@ jobs:
     #- name: Install newman
       #run: |
         #npm install newman
-    #- name: Newman Action
-     # uses: matt-ball/newman-action@0.0.28
-     # with:
-      #  collection: resources/postman-collection/postman_collection.json
-       # environment: resources/postman-collection/postman_environment.json
+    - name: Newman Action
+      uses: matt-ball/newman-action@0.0.28
+      with:
+       collection: resources/postman-collection/postman_collection.json
+       environment: resources/postman-collection/postman_environment.json
