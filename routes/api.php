@@ -1,5 +1,5 @@
 <?php
-Route::group(['prefix' => config('constants.API_PREFIX'), 'middleware' => ['CheckHeaders', 'Cors']], function ()
+Route::group(['prefix' => config('constants.API_PREFIX'), 'middleware' => []], function ()
 {
     Route::post('/users', 'UsersController@store');
     Route::get('/users', 'UsersController@get');
