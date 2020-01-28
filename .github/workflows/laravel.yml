@@ -27,6 +27,6 @@ jobs:
     - name: Install newman
       run: |
         npm install newman
-    - name: Postman Tests
-      run: |
-        newman run resources/postman-collection/postman_collection.json -e resources/postman-collection/postman_environment.json
+    #- name: Postman Tests
+    #  run: |
+    #    newman run resources/postman-collection/postman_collection.json -e resources/postman-collection/postman_environment.json
