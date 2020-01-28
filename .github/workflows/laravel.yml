@@ -25,8 +25,8 @@ jobs:
     - uses: harmon758/postgresql-action@v1
       with:
         postgresql version: '11'
-    # - name: Newman Action
-    #   uses: matt-ball/newman-action@0.0.28
-    #   with:
-    #    collection: resources/postman-collection/postman_collection.json
-    #    environment: resources/postman-collection/postman_environment.json
+    - name: Newman Action
+      uses: matt-ball/newman-action@0.0.28
+      with:
+       collection: resources/postman-collection/postman_collection.json
+       environment: resources/postman-collection/postman_environment.json
