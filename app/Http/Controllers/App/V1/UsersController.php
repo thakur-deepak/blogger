@@ -19,7 +19,7 @@ class UsersController extends Controller
     public function store(UserStoreRequest $request)
     {
         if ($this->user->store($request)) {
-            return response()->json(['data' =>  'Data saved sucessfully', 'success' => true]);
+            return response()->json(['data' =>  'Data saved sucessfully', 'success' => true, 'status' => 200]);
         }
         return response()->json(['data' =>  'Data not saved', 'success' => false]);
     }
