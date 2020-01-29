@@ -13,6 +13,7 @@ class UsersController extends Controller
 
     public function __construct(UserRepositoryInterface $user)
     {
+        \Log::debug('Test debug message');
         $this->user = $user;
     }
 

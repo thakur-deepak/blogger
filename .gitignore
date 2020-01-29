@@ -6,6 +6,7 @@
 /storage
 /bootstrap
 /coverage
+.idea
 .env
 .env.backup
 .phpunit.result.cache
