@@ -9,40 +9,44 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 trait RestExceptionHandlerTrait
 {
+    protected $exception;
     protected function getJsonResponseForException(Exception $exception)
     {
+        $this->exception = $exception;
         switch(true)
         {
-            case ($exception instanceof ValidationException):
-                return $this->validation($exception);
-            case ($exception instanceof MethodNotAllowedHttpException):
-                return $this->MethodNotAllowedHttp($exception);
-            case ($exception instanceof NotFoundHttpException):
-                return $this->NotFoundHttp($exception);
+            case ($this->exception instanceof ValidationException):
+                return $this->validation();
+            case ($this->exception instanceof MethodNotAllowedHttpException):
+                return $this->MethodNotAllowedHttp();
+            case ($this->exception instanceof NotFoundHttpException):
+                return $this->NotFoundHttp();
         }
     }
 
-    protected function validation(ValidationException $exception) {
-        return $this->response('Validation error', 422, $exception->validator->errors()->getMessages());
+    protected function validation()
+    {
+        return $this->response(__('messages.validation_error'), 422, $this->exception->validator->errors()->getMessages());
     }
 
-    protected function MethodNotAllowedHttp(Exception $exception)
+    protected function MethodNotAllowedHttp()
     {
-        return $this->response('Method not allowed', 404, $exception->getMessage());
+        return $this->response(__('method_not_allowed'), 404, $this->exception->getMessage());
     }
 
-    protected function NotFoundHttp(Exception $exception)
+    protected function NotFoundHttp()
     {
-        return $this->response('Not found', 400, $exception->getMessage());
+        return $this->response(__('not_found'), 400, $this->exception->getMessage());
     }
 
     protected function invalidHeaders()
     {
-        return $this->response('Invalid headers', 400);
+        return $this->response(__('invalid_headers'), 400);
     }
+
     protected function invalidToken()
     {
-        return $this->response('Invalid Token', 404);
+        return $this->response(__('invalid_token'), 404);
     }
 
     protected function response($message, $status, $data = '', $success = false)
