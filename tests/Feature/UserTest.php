@@ -24,7 +24,8 @@ class UserTest extends TestCase
     public function testCreate()
     {
         $attributes = [
-            'name' =>  $this->faker->name(),
+            'first_name' =>  $this->faker->firstName(),
+            'last_name' =>  $this->faker->lastName(),
             'email' => $this->faker->email(),
             'password' =>  $this->faker->password()
         ];

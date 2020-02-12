@@ -11,6 +11,7 @@
         "php": "^7.2",
         "doctrine/dbal": "^2.10",
         "fideloper/proxy": "^4.0",
+        "jsdecena/baserepo": "^1.0",
         "laravel/framework": "6.*",
         "laravel/tinker": "^2.0",
         "rollbar/rollbar-laravel": "^5.0"
