@@ -10,6 +10,11 @@ abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication, DatabaseMigrations;
 
+    public function setUp() : void
+    {
+        parent::setUp();
+    }
+
     public function tearDown() : void
     {
         $this->artisan('migrate:reset');
